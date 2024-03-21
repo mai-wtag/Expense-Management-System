@@ -4,7 +4,7 @@ class UserOrganization < ApplicationRecord
   belongs_to :organization
 
   # Validations
-  validates :invitation, presence: true, inclusion: { in: ['pending', 'accepted', 'rejected'] }
+  validates :invitation, presence: true, inclusion: { in: %w[pending accepted rejected] }
 
   # Callback to delete records with 'rejected' invitation
   after_save :delete_if_rejected
