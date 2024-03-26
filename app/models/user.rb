@@ -20,9 +20,6 @@ class User < ApplicationRecord
     confirmed_at.present?
   end
 
-  def generate_confirmation_token
-    signed_id expires_in: 20.minutes, purpose: :confirm_email
-  end
 
   def unconfirmed?
     !confirmed?
