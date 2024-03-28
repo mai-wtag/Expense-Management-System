@@ -35,6 +35,4 @@
 /config/master.key
 
 # Ignore Rubymine file
-/.idea/
-.idea
 .idea

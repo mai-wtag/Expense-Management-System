@@ -3,6 +3,5 @@ FactoryBot.define do
     name { Faker::Name.name }
     email { Faker::Internet.email }
     password_digest { BCrypt::Password.create('password123') }
-
   end
 end

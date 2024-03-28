@@ -13,7 +13,6 @@ RSpec.describe UserOrganization, type: :model do
     end
   end
 
-
   describe 'associations' do
     it 'belongs to user' do
       association = described_class.reflect_on_association(:user)

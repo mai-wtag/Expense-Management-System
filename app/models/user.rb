@@ -1,8 +1,8 @@
 class User < ApplicationRecord
   has_secure_password
-  # Validations
   validates :name, presence: true, length: { maximum: 30 }
-  validates :email, presence: true, length: { maximum: 50 }, uniqueness: true, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
+  validates :email, presence: true, length: { maximum: 50 }, uniqueness: true,
+                    format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
 
   generates_token_for :password_reset, expires_in: 15.minutes do
     password_salt&.last(10)
@@ -19,7 +19,6 @@ class User < ApplicationRecord
   def confirmed?
     confirmed_at.present?
   end
-
 
   def unconfirmed?
     !confirmed?
