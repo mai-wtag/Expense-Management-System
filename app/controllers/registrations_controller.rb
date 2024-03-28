@@ -1,12 +1,13 @@
 class RegistrationsController < ApplicationController
+  include SendConfirmationEmail
   def new
     @user = User.new
   end
   def create
     @user = User.new(registration_params)
     if @user.save
-      login @user
-      redirect_to root_path
+      send_email(params[:email])
+      redirect_to root_path, notice: "Verification email sent, Check your email !"
     else
       render :new, status: :unprocessable_entity
     end
